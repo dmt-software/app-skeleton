@@ -1,0 +1,32 @@
+{
+  "name": "dmt-software/app-skeleton",
+  "type": "project",
+  "license": "MIT",
+  "description": "Create a new application based on Slim framework",
+  "keywords": ["application", "slim", "guzzle", "pimple", "di-plug"],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Bas de Mes",
+      "email": "bas@dmt-software.nl"
+    }
+  ],
+  "require": {
+    "php": ">8.1",
+    "dmt-software/di-plug": "^0.2",
+    "guzzlehttp/psr7": "^2.0",
+    "pimple/pimple": "^3.2",
+    "slim/slim": "^4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "DMT\\": "src/"
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "echo -e '# Application\n\ntodo describe the application\n' > README.md"
+    ]
+  }
+}
