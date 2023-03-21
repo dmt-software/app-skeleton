@@ -26,7 +26,7 @@
   },
   "scripts": {
     "post-create-project-cmd": [
-      "echo -e '# Application\n\ntodo describe the application\n' > README.md"
+      "echo '# Application\n\ntodo describe the application\n' > README.md"
     ]
   }
 }
