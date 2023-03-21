@@ -3,7 +3,13 @@
   "type": "project",
   "license": "MIT",
   "description": "Create a new application based on Slim framework",
-  "keywords": ["application", "slim", "guzzle", "pimple", "di-plug"],
+  "keywords": [
+    "application",
+    "slim",
+    "guzzle",
+    "pimple",
+    "di-plug"
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
@@ -19,12 +25,27 @@
     "pimple/pimple": "^3.2",
     "slim/slim": "^4.2"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "squizlabs/php_codesniffer": "^3.7"
+  },
   "autoload": {
     "psr-4": {
       "DMT\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "DMT\\Test": "tests/"
+    }
+  },
   "scripts": {
+    "test": [
+      "@phpcs",
+      "@phpunit"
+    ],
+    "phpcs": "phpcs src/ tests/ --standaard=PSR12",
+    "phpunit": "phpunit",
     "post-create-project-cmd": [
       "echo '# Application\n\ntodo describe the application\n' > README.md"
     ]
