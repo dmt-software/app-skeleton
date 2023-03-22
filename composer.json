@@ -36,7 +36,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "DMT\\Test": "tests/"
+      "DMT\\Test\\": "tests/"
     }
   },
   "scripts": {
@@ -44,8 +44,12 @@
       "@phpcs",
       "@phpunit"
     ],
+    "integration": [
+      "@run-integration"
+    ],
     "phpcs": "phpcs src/ tests/ --standaard=PSR12",
     "phpunit": "phpunit",
+    "run-integration": "phpunit --group integration",
     "post-create-project-cmd": [
       "echo '# Application\n\ntodo describe the application\n' > README.md"
     ]
