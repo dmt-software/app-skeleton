@@ -8,7 +8,9 @@ use InvalidArgumentException;
 
 class LoaderChain implements FileLoaderInterface
 {
-    /** @var array<FileLoaderInterface> */
+    /**
+     * @var array<FileLoaderInterface>
+     */
     private array $loaders = [];
 
     public function __construct(array $loaders)

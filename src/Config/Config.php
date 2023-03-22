@@ -10,7 +10,7 @@ use InvalidArgumentException;
 
 class Config
 {
-    protected FileLoaderInterface $fileLoader;
+    private FileLoaderInterface $fileLoader;
     private array $options = [];
 
     public function __construct(FileLoaderInterface $fileLoader = null, array $options = [])
@@ -32,7 +32,7 @@ class Config
     /**
      * Get a config option.
      *
-     * @param string $option the (dotted) option to lookup, when omitted all the options are returned.
+     * @param string     $option  the (dotted) option to lookup, when omitted all the options are returned.
      * @param mixed|null $default the default value to return in case the option is not set.
      *
      * @return mixed
@@ -56,7 +56,7 @@ class Config
      * Set an option in config.
      *
      * @param string|null $option the (dotted) option to store.
-     * @param mixed|null $value the value to store in config.
+     * @param mixed|null  $value  the value to store in config.
      *
      * @return void
      * @throws \InvalidArgumentException when the configuration can not be stored.
@@ -73,18 +73,21 @@ class Config
 
         $value = $this->normalize(value: $value);
         $options = &$this->options;
-        array_walk(array: $value, callback: function (mixed $value, string $option) use (&$options) {
-            $keys = preg_split(pattern: '~(?<!\\\)\.~', subject: $option, flags: PREG_SPLIT_NO_EMPTY);
-            $last = array_pop(array: $keys);
-            foreach ($keys as $option) {
-                if (!array_key_exists(key: $option, array: $options)) {
-                    $options[$option] = [];
+        array_walk(
+            array: $value,
+            callback: function (mixed $value, string $option) use (&$options) {
+                $keys = preg_split(pattern: '~(?<!\\\)\.~', subject: $option, flags: PREG_SPLIT_NO_EMPTY);
+                $last = array_pop(array: $keys);
+                foreach ($keys as $option) {
+                    if (!array_key_exists(key: $option, array: $options)) {
+                        $options[$option] = [];
+                    }
+                    $options = &$options[$option];
                 }
-                $options = &$options[$option];
-            }
 
-            $options = array_replace_recursive($options, [$last => $value]);
-        });
+                $options = array_replace_recursive($options, [$last => $value]);
+            }
+        );
     }
 
     private function normalize(mixed $value): mixed

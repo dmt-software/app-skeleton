@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace DMT\Apps;
@@ -14,6 +15,9 @@ use Slim\App as BaseApp;
  */
 class App extends BaseApp
 {
+    /**
+     * Register all (installed) service providers.
+     */
     public function init(): void
     {
         $this->getContainer()->register(provider: new AppServiceProvider($this));

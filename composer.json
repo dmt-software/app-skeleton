@@ -47,11 +47,14 @@
     "integration": [
       "@run-integration"
     ],
-    "phpcs": "phpcs src/ tests/ --standaard=PSR12",
+    "phpcs": "phpcs src/ tests/ --standard=PSR12",
     "phpunit": "phpunit",
     "run-integration": "phpunit --group integration",
     "post-create-project-cmd": [
       "echo '# Application\n\ntodo describe the application\n' > README.md"
+    ],
+    "post-install-cmd": [
+      "chmod 0777 cache -R"
     ]
   }
 }
