@@ -27,7 +27,7 @@ class ConfigTest extends TestCase
     public function testLoad(): void
     {
         $fh = tmpfile();
-        fwrite($fh, '<?php return ' . var_export(self::$options, true) . ';');
+        fwrite($fh, sprintf('<?php return %s;', var_export(self::$options, true)));
 
         try {
             $config = new Config(fileLoader: new FileLoader(extension: ''));
