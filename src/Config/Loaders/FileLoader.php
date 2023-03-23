@@ -21,7 +21,7 @@ class FileLoader implements FileLoaderInterface
      */
     public function load(string $filename): ?array
     {
-        if (!pathinfo(path: $filename, flags: PATHINFO_EXTENSION) == $this->extension) {
+        if (pathinfo(path: $filename, flags: PATHINFO_EXTENSION) != $this->extension) {
             return null;
         }
 
