@@ -1,4 +1,4 @@
-name: Test before you push
+name: build
 on: push
 jobs:
   test-push-action:
