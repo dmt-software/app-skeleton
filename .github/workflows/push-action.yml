@@ -1,20 +1,21 @@
 name: Test before you push
 on: push
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+  test-push-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Setup php
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: latest
-        coverage: none
+      - name: Setup php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: latest
+          coverage: none
 
-    - name: Install dependencies
-      run: composer install --no-progress --prefer-dist
+      - name: Install dependencies
+        run: composer install --no-progress --prefer-dist
 
-    - name: Run code style and unit test
-      run: composer test
+      - name: Run code style and unit test
+        run: composer test
 
