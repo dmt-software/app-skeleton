@@ -1,5 +1,7 @@
 # Application Skeleton 
 
+[![build](https://github.com/dmt-software/app-skeleton/actions/workflows/push-action.yml/badge.svg)](https://github.com/dmt-software/app-skeleton/actions/workflows/push-action.yml)
+
 ## Installation
 
 Replace **[path]** in the command below to create a new application in that location. 
