@@ -41,7 +41,7 @@ class FileLoader implements FileLoaderInterface
         $config = @include $file;
 
         if ($config === false) {
-            throw new InvalidArgumentException(message: 'could not file configuration file');
+            throw new InvalidArgumentException(message: 'configuration file not find');
         }
 
         if ($config instanceof Closure) {
