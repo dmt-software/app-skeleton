@@ -41,8 +41,8 @@
   },
   "scripts": {
     "test": [
-      "@phpcs",
-      "@phpunit"
+      "@phpunit",
+      "@phpcs"
     ],
     "integration": [
       "@run-integration"

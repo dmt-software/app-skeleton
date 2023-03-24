@@ -17,7 +17,7 @@ class AppTest extends TestCase
             container: (new ContainerFactory())->createContainer()
         );
         $app->init();
-var_dump($app->getContainer()->get(App::class));
+
         $this->assertInstanceOf(Container::class, $app->getContainer());
         $this->assertInstanceOf(App::class, $app->getContainer()->get(App::class));
     }
