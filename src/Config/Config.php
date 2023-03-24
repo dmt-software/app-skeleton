@@ -67,31 +67,25 @@ class Config
             $value = [$option => $value];
         }
 
-        if (is_array(value: $value) && array_filter(array: $value, callback: 'is_int', mode: ARRAY_FILTER_USE_KEY)) {
+        if (!is_array(value: $value) || array_filter(array: $value, callback: 'is_int', mode: ARRAY_FILTER_USE_KEY)) {
             throw new InvalidArgumentException(message: 'invalid configuration');
         }
 
         $value = $this->normalize(value: $value);
-        $options = &$this->options;
+
         array_walk(
             array: $value,
-            callback: function (mixed $value, string $option) use (&$options) {
-                $keys = preg_split(pattern: '~(?<!\\\)\.~', subject: $option, flags: PREG_SPLIT_NO_EMPTY);
-                $last = array_pop(array: $keys);
-                foreach ($keys as $option) {
-                    if (!array_key_exists(key: $option, array: $options)) {
-                        $options[$option] = [];
-                    }
-                    $options = &$options[$option];
-                }
-
-                $options = array_replace_recursive($options, [$last => $value]);
+            callback: function (mixed $value, string $option) {
+                $this->options = array_replace_recursive($this->options, [$option => $value]);
             }
         );
     }
 
     private function normalize(mixed $value): mixed
     {
+        if (is_object(value: $value) || is_resource(value: $value)) {
+            throw new InvalidArgumentException(message: 'invalid configuration');
+        }
         if (!is_array(value: $value)) {
             return $value;
         }
