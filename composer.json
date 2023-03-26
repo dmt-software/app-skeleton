@@ -23,7 +23,8 @@
     "dmt-software/di-plug": "^0.2",
     "guzzlehttp/psr7": "^2.0",
     "pimple/pimple": "^3.2",
-    "slim/slim": "^4.2"
+    "slim/slim": "^4.2",
+    "spiral/attributes": "^3.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^10.0",
