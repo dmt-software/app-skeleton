@@ -19,6 +19,6 @@ class AppTest extends TestCase
         $app->init();
 
         $this->assertInstanceOf(Container::class, $app->getContainer());
-        $this->assertInstanceOf(App::class, $app->getContainer()->get(App::class));
+        $this->assertInstanceOf(App::class, $app->getContainer()->get(\Slim\App::class));
     }
 }

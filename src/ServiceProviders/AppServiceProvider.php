@@ -12,6 +12,7 @@ use DMT\DependencyInjection\Container;
 use DMT\DependencyInjection\ServiceProviderInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
+use Slim\App as BaseApp;
 
 /**
  * App service provider
@@ -32,6 +33,7 @@ class AppServiceProvider implements ServiceProviderInterface
         $app = $this->app;
 
         $container->set(id: App::class, value: fn() => $app);
+        $container->set(id: BaseApp::class, value: fn() => $app);
         $container->set(id: Config::class, value: fn() => new Config($container->get(FileLoaderInterface::class)));
         $container->set(id: ContainerInterface::class, value: fn() => $container);
         $container->set(id: FileLoaderInterface::class, value: fn() => new FileLoader());
