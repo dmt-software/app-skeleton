@@ -30,10 +30,8 @@ class AppServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $container): void
     {
-        $app = $this->app;
-
-        $container->set(id: App::class, value: fn() => $app);
-        $container->set(id: BaseApp::class, value: fn() => $app);
+        $container->set(id: App::class, value: fn() => $this->app);
+        $container->set(id: BaseApp::class, value: fn() => $this->app);
         $container->set(id: Config::class, value: fn() => new Config($container->get(FileLoaderInterface::class)));
         $container->set(id: ContainerInterface::class, value: fn() => $container);
         $container->set(id: FileLoaderInterface::class, value: fn() => new FileLoader());
