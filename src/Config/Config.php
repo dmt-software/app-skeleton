@@ -10,12 +10,12 @@ use InvalidArgumentException;
 
 class Config
 {
-    private FileLoaderInterface $fileLoader;
     private array $options = [];
 
-    public function __construct(FileLoaderInterface $fileLoader = null, array $options = [])
-    {
-        $this->fileLoader = $fileLoader ?? new FileLoader();
+    public function __construct(
+        private readonly FileLoaderInterface $fileLoader = new FileLoader(),
+        array $options = []
+    ) {
         $this->set(value: $options);
     }
 
