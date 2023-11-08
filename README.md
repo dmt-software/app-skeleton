@@ -9,13 +9,18 @@ Replace **[path]** in the command below to create a new application in that loca
 ```
 composer create-project dmt-software/app-skeleton [path] --remove-vcs
 ```
+## Dependency injection
 
-## Container 
+Dependency is handled by _Service Providers_ which are included within the _App::init_ method. Within this method you 
+can add more providers that list their dependencies within the _Dependency Container_.
+
+> see [dmt-software/di-plug](https://packagist.org/packages/dmt-software/di-plug) for container implementations that are
+> supported.
+
+### Container 
 
 By default, the application uses Pimple container to hold the dependency injection.
 This can be changed to another container implementation. 
-
-> see [dmt-software/di-plug](https://packagist.org/packages/dmt-software/di-plug) for the supported packages.
 
 #### PHP-DI container 
 
