@@ -7,7 +7,7 @@
 Replace **[path]** in the command below to create a new application in that location. 
 
 ```
-composer create-project dmt-software/app-skeleton [path] --remove-vcs
+composer create-project dmt-software/app-skeleton [path] --stability dev
 ```
 ## Dependency injection
 
