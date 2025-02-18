@@ -11,8 +11,8 @@ composer create-project dmt-software/app-skeleton [path] --stability dev
 ```
 ## Dependency injection
 
-Dependency is handled by _Service Providers_ which are included within the _App::init_ method. Within this method you 
-can add more providers that list their dependencies within the _Dependency Container_.
+Dependency is handled by _Service Providers_ which are included within the _App::initServices_ method. Within this 
+method you can add more providers that list their dependencies within the _Dependency Container_.
 
 > see [dmt-software/di-plug](https://packagist.org/packages/dmt-software/di-plug) for container implementations that are
 > supported.
@@ -30,7 +30,7 @@ composer require php-di/php-di
 ```
 
 The container will be auto-discovered, but to ensure the chosen container 
-implementation is used it can be configured manually.
+implementation is used, it can be configured manually.
 
 ```php
 

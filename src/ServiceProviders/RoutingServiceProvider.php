@@ -7,9 +7,12 @@ use DMT\DependencyInjection\Container;
 use DMT\DependencyInjection\ServiceProviderInterface;
 use DMT\Middlewares\TrimTrailingSlashMiddleware;
 
-class RoutingServiceProvider implements ServiceProviderInterface
+/**
+ * Routing service provider
+ */
+readonly class RoutingServiceProvider implements ServiceProviderInterface
 {
-    public function __construct(private readonly App $app)
+    public function __construct(private App $app)
     {
     }
 
