@@ -19,7 +19,7 @@ use Slim\App as BaseApp;
  *
  * Store application dependencies in the container.
  */
-readonly class AppServiceProvider implements ServiceProviderInterface
+final readonly class AppServiceProvider implements ServiceProviderInterface
 {
     public function __construct(private App $app)
     {

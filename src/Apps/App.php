@@ -7,6 +7,7 @@ namespace DMT\Apps;
 use DMT\Config\Config;
 use DMT\DependencyInjection\Container;
 use DMT\ServiceProviders\AppServiceProvider;
+use DMT\ServiceProviders\DoctrineServiceProvider;
 use DMT\ServiceProviders\RoutingServiceProvider;
 use Slim\App as BaseApp;
 
@@ -48,6 +49,8 @@ class App extends BaseApp
     public function initServices(): void
     {
         $container = $this->getContainer();
+
+        $container->register(new DoctrineServiceProvider());
 
         $container->register(provider: new RoutingServiceProvider($this));
     }

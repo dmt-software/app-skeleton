@@ -43,7 +43,7 @@ class ConfigTest extends TestCase
     /**
      * @dataProvider configSetProvider
      */
-    public function testSet(string $option = null, mixed $value = null, mixed $expected = null): void
+    public function testSet(?string $option = null, mixed $value = null, mixed $expected = null): void
     {
         $config = new Config(options: self::TEST_CONFIG);
         $config->set(option: $option, value: $value);
@@ -92,7 +92,7 @@ class ConfigTest extends TestCase
     /**
      * @dataProvider invalidConfigProvider
      */
-    public function testConfigFailure(string $key = null, mixed $value = null)
+    public function testConfigFailure(?string $key = null, mixed $value = null)
     {
         $this->expectExceptionObject(new InvalidArgumentException(message: 'invalid configuration'));
 

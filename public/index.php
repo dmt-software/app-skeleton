@@ -8,7 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = new App(
     responseFactory: AppFactory::determineResponseFactory(),
-    container: (new ContainerFactory())->createContainer()
+    container: new ContainerFactory()->createContainer()
 );
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

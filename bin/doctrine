@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+use DMT\DependencyInjection\ContainerFactory;
+use DMT\ServiceProviders\DoctrineServiceProvider;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$container = new ContainerFactory()->createContainer();
+$container->register(new DoctrineServiceProvider());
+
+ConsoleRunner::run(
+    new SingleManagerProvider($container->get(EntityManagerInterface::class)),
+);

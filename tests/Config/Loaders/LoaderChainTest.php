@@ -14,7 +14,7 @@ class LoaderChainTest extends TestCase
     {
         $iniFileLoader = $this->getMockBuilder(FileLoaderInterface::class)
             ->onlyMethods(['load'])
-            ->getMockForAbstractClass();
+            ->getMock();
 
         $iniFileLoader
             ->expects($this->once())
@@ -22,7 +22,7 @@ class LoaderChainTest extends TestCase
             ->with($this->equalTo('config.ini'))
             ->willReturn($config = ['loaded' => true]);
 
-        $notCalledFileLoader = $this->getMockBuilder(FileLoader::class)
+        $notCalledFileLoader = $this->getMockBuilder(FileLoaderInterface::class)
             ->onlyMethods(['load'])
             ->getMock();
 

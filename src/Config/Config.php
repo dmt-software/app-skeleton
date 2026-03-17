@@ -8,7 +8,7 @@ use DMT\Config\Loaders\FileLoader;
 use DMT\Config\Loaders\FileLoaderInterface;
 use InvalidArgumentException;
 
-class Config
+final class Config
 {
     private array $options = [];
 

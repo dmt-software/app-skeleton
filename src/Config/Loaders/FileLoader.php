@@ -7,11 +7,11 @@ namespace DMT\Config\Loaders;
 use Closure;
 use InvalidArgumentException;
 
-class FileLoader implements FileLoaderInterface
+final readonly class FileLoader implements FileLoaderInterface
 {
-    private readonly Closure $callback;
+    private Closure $callback;
 
-    public function __construct(private readonly string $extension = 'php', Closure $callback = null)
+    public function __construct(private string $extension = 'php', ?Closure $callback = null)
     {
         $this->callback = $callback ?? $this->callable(...);
     }

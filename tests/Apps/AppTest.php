@@ -14,7 +14,7 @@ class AppTest extends TestCase
     {
         $app = new App(
             responseFactory: AppFactory::determineResponseFactory(),
-            container: (new ContainerFactory())->createContainer()
+            container: new ContainerFactory()->createContainer()
         );
         $app->init();
 

@@ -6,7 +6,7 @@ namespace DMT\Config\Loaders;
 
 use InvalidArgumentException;
 
-class LoaderChain implements FileLoaderInterface
+final class LoaderChain implements FileLoaderInterface
 {
     /**
      * @var array<FileLoaderInterface>

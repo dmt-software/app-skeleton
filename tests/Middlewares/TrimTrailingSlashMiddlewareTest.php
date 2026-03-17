@@ -19,11 +19,11 @@ class TrimTrailingSlashMiddlewareTest extends TestCase
     {
         $handler = $this->getMockBuilder(RequestHandlerInterface::class)
             ->onlyMethods(['handle'])
-            ->getMockForAbstractClass();
+            ->getMock();
 
         $handler->expects($this->any())->method('handle')->willReturnCallback(
             function (ServerRequestInterface $request) use ($expectedPath) {
-                return (new Response(200))->withHeader('location', (string)$request->getUri());
+                return new Response(200)->withHeader('location', (string)$request->getUri());
             }
         );
 

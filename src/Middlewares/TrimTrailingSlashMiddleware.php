@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DMT\Middlewares;
 
 use Psr\Http\Message\ResponseFactoryInterface;
@@ -8,9 +10,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class TrimTrailingSlashMiddleware implements MiddlewareInterface
+final readonly class TrimTrailingSlashMiddleware implements MiddlewareInterface
 {
-    public function __construct(private readonly ResponseFactoryInterface $responseFactory)
+    public function __construct(private ResponseFactoryInterface $responseFactory)
     {
     }
 
