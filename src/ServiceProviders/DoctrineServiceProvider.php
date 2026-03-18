@@ -22,6 +22,7 @@ final readonly class DoctrineServiceProvider implements ServiceProviderInterface
             paths: [__DIR__ . '/../Entity'],
             isDevMode: $config->get('app.debug', false) === true,
         );
+        $configuration->enableNativeLazyObjects(true);
 
         $connection = DriverManager::getConnection(
             params: $config->get('database', ['driver' => 'pdo_sqlite', 'path' => __DIR__ . '/../cache/db.sqlite']),
@@ -30,7 +31,7 @@ final readonly class DoctrineServiceProvider implements ServiceProviderInterface
 
         $container->set(
             id: EntityManagerInterface::class,
-            value: fn() => new EntityManager($connection, $config)
+            value: fn() => new EntityManager($connection, $configuration)
         );
     }
 }
