@@ -15,25 +15,23 @@ use DMT\Middlewares\TrimTrailingSlashMiddleware;
  */
 final readonly class RoutingServiceProvider implements ServiceProviderInterface
 {
-    public function __construct(private App $app)
-    {
-    }
-
     public function register(Container $container): void
     {
+        $app = $container->get(App::class);
+
         $container->set(
             id: TrimTrailingSlashMiddleware::class,
-            value: fn() => new TrimTrailingSlashMiddleware($this->app->getResponseFactory())
+            value: fn() => new TrimTrailingSlashMiddleware($app->getResponseFactory())
         );
 
-        $this->app->addMiddleware($container->get(TrimTrailingSlashMiddleware::class));
+        $app->addMiddleware(
+            middleware: $container->get(TrimTrailingSlashMiddleware::class)
+        );
 
-        // add routes here
-
-        $this->app->addErrorMiddleware(
+        $app->addErrorMiddleware(
             displayErrorDetails: $container->get(Config::class)->get('app.debug', false),
             logErrors: true,
-            logErrorDetails:  true
+            logErrorDetails: true
         );
     }
 }

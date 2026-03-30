@@ -52,8 +52,7 @@ class App extends BaseApp
         $container = $this->getContainer();
 
         $container->register(provider: new DoctrineServiceProvider());
-        $container->register(provider: new TwigServiceProvider($this));
-
-        $container->register(provider: new RoutingServiceProvider($this));
+        $container->register(provider: new TwigServiceProvider());
+        $container->register(provider: new RoutingServiceProvider());
     }
 }

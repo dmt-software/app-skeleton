@@ -19,13 +19,13 @@ final readonly class DoctrineServiceProvider implements ServiceProviderInterface
         $config = $container->get(Config::class);
 
         $configuration = ORMSetup::createAttributeMetadataConfig(
-            paths: [__DIR__ . '/../Entity'],
+            paths: [__DIR__ . '/../Entities'],
             isDevMode: $config->get('app.debug', false) === true,
         );
         $configuration->enableNativeLazyObjects(true);
 
         $connection = DriverManager::getConnection(
-            params: $config->get('database', ['driver' => 'pdo_sqlite', 'path' => __DIR__ . '/../cache/db.sqlite']),
+            params: $config->get('database'),
             config: $configuration
         );
 
