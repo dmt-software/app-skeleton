@@ -6,15 +6,14 @@ use DMT\Middlewares\TrimTrailingSlashMiddleware;
 use GuzzleHttp\Psr7\HttpFactory;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\ServerRequest;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 class TrimTrailingSlashMiddlewareTest extends TestCase
 {
-    /**
-     * @dataProvider trailingSlashProvider
-     */
+    #[DataProvider(methodName: "trailingSlashProvider")]
     public function testProcess(string $method, string $uri, string $expectedPath): void
     {
         $handler = $this->getMockBuilder(RequestHandlerInterface::class)

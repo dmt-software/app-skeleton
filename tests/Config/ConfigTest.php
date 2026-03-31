@@ -7,6 +7,7 @@ namespace DMT\Test\Config;
 use DMT\Config\Config;
 use DMT\Config\Loaders\FileLoader;
 use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class ConfigTest extends TestCase
@@ -40,9 +41,7 @@ class ConfigTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider configSetProvider
-     */
+    #[DataProvider(methodName: "configSetProvider")]
     public function testSet(?string $option = null, mixed $value = null, mixed $expected = null): void
     {
         $config = new Config(options: self::TEST_CONFIG);
@@ -65,9 +64,7 @@ class ConfigTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider configGetProvider
-     */
+    #[DataProvider(methodName: "configGetProvider")]
     public function testGet(string $option = '', mixed $default = null, mixed $expected = null): void
     {
         $config = new Config(options: self::TEST_CONFIG);
@@ -89,9 +86,7 @@ class ConfigTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider invalidConfigProvider
-     */
+    #[DataProvider(methodName: "invalidConfigProvider")]
     public function testConfigFailure(?string $key = null, mixed $value = null)
     {
         $this->expectExceptionObject(new InvalidArgumentException(message: 'invalid configuration'));
