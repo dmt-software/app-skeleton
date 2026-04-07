@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24ac6e462e08633c66ecd49fd2827f52",
+    "content-hash": "dec1ebbb01855bcf29eb7805be68c6fa",
     "packages": [
         {
             "name": "dmt-software/di-plug",
-            "version": "0.3.2",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmt-software/di-plug.git",
-                "reference": "15c9cfbff6e5721cfcbc2e7ff650c4dc3bafba3e"
+                "reference": "1aa26483fe31c42455ba250b77d97a971be0f1bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmt-software/di-plug/zipball/15c9cfbff6e5721cfcbc2e7ff650c4dc3bafba3e",
-                "reference": "15c9cfbff6e5721cfcbc2e7ff650c4dc3bafba3e",
+                "url": "https://api.github.com/repos/dmt-software/di-plug/zipball/1aa26483fe31c42455ba250b77d97a971be0f1bf",
+                "reference": "1aa26483fe31c42455ba250b77d97a971be0f1bf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1",
+                "php": ">=8.4",
                 "psr/container": "^2.0"
             },
             "require-dev": {
@@ -52,9 +52,9 @@
             "description": "An PHP dependency container abstraction",
             "support": {
                 "issues": "https://github.com/dmt-software/di-plug/issues",
-                "source": "https://github.com/dmt-software/di-plug/tree/0.3.2"
+                "source": "https://github.com/dmt-software/di-plug/tree/0.4.0"
             },
-            "time": "2026-03-14T21:55:25+00:00"
+            "time": "2026-04-07T13:39:36+00:00"
         },
         {
             "name": "doctrine/collections",

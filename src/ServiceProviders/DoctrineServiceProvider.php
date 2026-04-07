@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DMT\ServiceProviders;
 
 use DMT\Config\Config;
+use DMT\DependencyInjection\ConfigurationInterface;
 use DMT\DependencyInjection\Container;
 use DMT\DependencyInjection\ServiceProviderInterface;
 use Doctrine\DBAL\DriverManager;
@@ -16,7 +17,7 @@ final readonly class DoctrineServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container): void
     {
-        $config = $container->get(Config::class);
+        $config = $container->get(ConfigurationInterface::class);
 
         $configuration = ORMSetup::createAttributeMetadataConfig(
             paths: [__DIR__ . '/../Entities'],

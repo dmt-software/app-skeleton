@@ -6,9 +6,10 @@ namespace DMT\Config;
 
 use DMT\Config\Loaders\FileLoader;
 use DMT\Config\Loaders\FileLoaderInterface;
+use DMT\DependencyInjection\ConfigurationInterface;
 use InvalidArgumentException;
 
-final class Config
+final class Config implements ConfigurationInterface
 {
     private array $options = [];
 
@@ -32,15 +33,15 @@ final class Config
     /**
      * Get a config option.
      *
-     * @param string     $option  the (dotted) option to lookup, when omitted all the options are returned.
+     * @param string     $value  the (dotted) option to lookup, when omitted all the options are returned.
      * @param mixed|null $default the default value to return in case the option is not set.
      *
      * @return mixed
      */
-    public function get(string $option = '', mixed $default = null): mixed
+    public function get(string $value = '', mixed $default = null): mixed
     {
         $options = $this->options;
-        $keys = preg_split(pattern: '~(?<!\\\)\.~', subject: $option, flags: PREG_SPLIT_NO_EMPTY);
+        $keys = preg_split(pattern: '~(?<!\\\)\.~', subject: $value, flags: PREG_SPLIT_NO_EMPTY);
         foreach ($keys as $key) {
             if (is_null(value: $options[$key] ?? null)) {
                 return $default;

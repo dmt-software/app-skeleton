@@ -6,6 +6,7 @@ namespace DMT\ServiceProviders;
 
 use DMT\Apps\App;
 use DMT\Config\Config;
+use DMT\DependencyInjection\ConfigurationInterface;
 use DMT\DependencyInjection\Container;
 use DMT\DependencyInjection\ServiceProviderInterface;
 use DMT\Middlewares\TrimTrailingSlashMiddleware;
@@ -29,7 +30,7 @@ final readonly class RoutingServiceProvider implements ServiceProviderInterface
         );
 
         $app->addErrorMiddleware(
-            displayErrorDetails: $container->get(Config::class)->get('app.debug', false),
+            displayErrorDetails: $container->get(ConfigurationInterface::class)->get('app.debug', false),
             logErrors: true,
             logErrorDetails: true
         );

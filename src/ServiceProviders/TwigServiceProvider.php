@@ -6,6 +6,7 @@ namespace DMT\ServiceProviders;
 
 use DMT\Apps\App;
 use DMT\Config\Config;
+use DMT\DependencyInjection\ConfigurationInterface;
 use DMT\DependencyInjection\Container;
 use DMT\DependencyInjection\ServiceProviderInterface;
 use Slim\Views\Twig;
@@ -21,7 +22,7 @@ final readonly class TwigServiceProvider implements ServiceProviderInterface
         $container->set(
             id: Twig::class,
             value: fn() => Twig::create(__DIR__ . '/../../templates', [
-                'debug' => $container->get(Config::class)->get('app.debug', false),
+                'debug' => $container->get(ConfigurationInterface::class)->get('app.debug', false),
                 'cache' => __DIR__ . '/../../cache'
             ])
         );

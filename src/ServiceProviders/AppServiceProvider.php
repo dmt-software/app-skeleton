@@ -8,6 +8,7 @@ use DMT\Apps\App;
 use DMT\Config\Config;
 use DMT\Config\Loaders\FileLoader;
 use DMT\Config\Loaders\FileLoaderInterface;
+use DMT\DependencyInjection\ConfigurationInterface;
 use DMT\DependencyInjection\Container;
 use DMT\DependencyInjection\ServiceProviderInterface;
 use Psr\Container\ContainerInterface;
@@ -32,7 +33,10 @@ final readonly class AppServiceProvider implements ServiceProviderInterface
     {
         $container->set(id: App::class, value: fn() => $this->app);
         $container->set(id: BaseApp::class, value: fn() => $this->app);
-        $container->set(id: Config::class, value: fn() => new Config($container->get(FileLoaderInterface::class)));
+        $container->set(
+            id: ConfigurationInterface::class,
+            value: fn() => new Config($container->get(FileLoaderInterface::class))
+        );
         $container->set(id: ContainerInterface::class, value: fn() => $container);
         $container->set(id: FileLoaderInterface::class, value: fn() => new FileLoader());
         $container->set(id: ResponseFactoryInterface::class, value: fn() => $this->app->getResponseFactory());
