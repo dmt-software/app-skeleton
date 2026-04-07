@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "dmt-software/di-plug",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmt-software/di-plug.git",
-                "reference": "1aa26483fe31c42455ba250b77d97a971be0f1bf"
+                "reference": "c00c19f87adfdcc5cbf7bfc30b1281294e34ee35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmt-software/di-plug/zipball/1aa26483fe31c42455ba250b77d97a971be0f1bf",
-                "reference": "1aa26483fe31c42455ba250b77d97a971be0f1bf",
+                "url": "https://api.github.com/repos/dmt-software/di-plug/zipball/c00c19f87adfdcc5cbf7bfc30b1281294e34ee35",
+                "reference": "c00c19f87adfdcc5cbf7bfc30b1281294e34ee35",
                 "shasum": ""
             },
             "require": {
@@ -52,9 +52,9 @@
             "description": "An PHP dependency container abstraction",
             "support": {
                 "issues": "https://github.com/dmt-software/di-plug/issues",
-                "source": "https://github.com/dmt-software/di-plug/tree/0.4.0"
+                "source": "https://github.com/dmt-software/di-plug/tree/0.4.1"
             },
-            "time": "2026-04-07T13:39:36+00:00"
+            "time": "2026-04-07T14:30:53+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -625,16 +625,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "3.6.2",
+            "version": "3.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "4262eb495b4d2a53b45de1ac58881e0091f2970f"
+                "reference": "e88cd591f0786089dee22b972c28aa2076df51c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/4262eb495b4d2a53b45de1ac58881e0091f2970f",
-                "reference": "4262eb495b4d2a53b45de1ac58881e0091f2970f",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/e88cd591f0786089dee22b972c28aa2076df51c0",
+                "reference": "e88cd591f0786089dee22b972c28aa2076df51c0",
                 "shasum": ""
             },
             "require": {
@@ -707,9 +707,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/3.6.2"
+                "source": "https://github.com/doctrine/orm/tree/3.6.3"
             },
-            "time": "2026-01-30T21:41:41+00:00"
+            "time": "2026-04-02T06:53:27+00:00"
         },
         {
             "name": "doctrine/persistence",
