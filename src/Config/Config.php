@@ -33,15 +33,15 @@ final class Config implements ConfigurationInterface
     /**
      * Get a config option.
      *
-     * @param string     $value  the (dotted) option to lookup, when omitted all the options are returned.
+     * @param string $option  the (dotted) option to lookup, when omitted all the options are returned.
      * @param mixed|null $default the default value to return in case the option is not set.
      *
      * @return mixed
      */
-    public function get(string $value = '', mixed $default = null): mixed
+    public function get(string $option = '', mixed $default = null): mixed
     {
         $options = $this->options;
-        $keys = preg_split(pattern: '~(?<!\\\)\.~', subject: $value, flags: PREG_SPLIT_NO_EMPTY);
+        $keys = preg_split(pattern: '~(?<!\\\)\.~', subject: $option, flags: PREG_SPLIT_NO_EMPTY);
         foreach ($keys as $key) {
             if (is_null(value: $options[$key] ?? null)) {
                 return $default;
@@ -57,7 +57,7 @@ final class Config implements ConfigurationInterface
      * Set an option in config.
      *
      * @param string|null $option the (dotted) option to store.
-     * @param mixed|null  $value  the value to store in config.
+     * @param mixed|null $value  the value to store in config.
      *
      * @return void
      * @throws \InvalidArgumentException when the configuration can not be stored.
