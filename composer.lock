@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "dmt-software/di-plug",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmt-software/di-plug.git",
-                "reference": "c00c19f87adfdcc5cbf7bfc30b1281294e34ee35"
+                "reference": "48259a8439d5bce774b090f6b3f6335e8df37df0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmt-software/di-plug/zipball/c00c19f87adfdcc5cbf7bfc30b1281294e34ee35",
-                "reference": "c00c19f87adfdcc5cbf7bfc30b1281294e34ee35",
+                "url": "https://api.github.com/repos/dmt-software/di-plug/zipball/48259a8439d5bce774b090f6b3f6335e8df37df0",
+                "reference": "48259a8439d5bce774b090f6b3f6335e8df37df0",
                 "shasum": ""
             },
             "require": {
@@ -52,9 +52,9 @@
             "description": "An PHP dependency container abstraction",
             "support": {
                 "issues": "https://github.com/dmt-software/di-plug/issues",
-                "source": "https://github.com/dmt-software/di-plug/tree/0.4.1"
+                "source": "https://github.com/dmt-software/di-plug/tree/0.4.2"
             },
-            "time": "2026-04-07T14:30:53+00:00"
+            "time": "2026-04-08T11:36:29+00:00"
         },
         {
             "name": "doctrine/collections",

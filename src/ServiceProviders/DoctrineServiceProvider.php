@@ -20,7 +20,7 @@ final readonly class DoctrineServiceProvider implements ServiceProviderInterface
         $config = $container->get(ConfigurationInterface::class);
 
         $configuration = ORMSetup::createAttributeMetadataConfig(
-            paths: [__DIR__ . '/../Entities'],
+            paths: [__DIR__ . '/../Entity'],
             isDevMode: $config->get('app.debug', false) === true,
         );
         $configuration->enableNativeLazyObjects(true);
