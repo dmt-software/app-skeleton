@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": ">=8.4",
-    "dmt-software/di-plug": "^0.4",
+    "dmt-software/di-plug": "^0.5",
     "doctrine/orm": "^3.6",
     "doctrine/dbal": "^4.4",
     "guzzlehttp/psr7": "^2.0",
