@@ -15,14 +15,18 @@ use Twig\Environment;
 
 final readonly class TwigServiceProvider implements ServiceProviderInterface
 {
+    public function __construct(
+        private App $application,
+        private ConfigurationInterface $config,
+    ) {
+    }
+
     public function register(Container $container): void
     {
-        $app = $container->get(App::class);
-
         $container->set(
             id: Twig::class,
             value: fn() => Twig::create(__DIR__ . '/../../templates', [
-                'debug' => $container->get(ConfigurationInterface::class)->get('app.debug', false),
+                'debug' => $this->config->get('app.debug', false),
                 'cache' => __DIR__ . '/../../cache'
             ])
         );
@@ -32,8 +36,8 @@ final readonly class TwigServiceProvider implements ServiceProviderInterface
             value: fn() => $container->get(Twig::class)->getEnvironment()
         );
 
-        $app->addMiddleware(
-            middleware: TwigMiddleware::create($app, $container->get(Twig::class))
+        $this->application->addMiddleware(
+            middleware: TwigMiddleware::create($this->application, $container->get(Twig::class))
         );
     }
 }

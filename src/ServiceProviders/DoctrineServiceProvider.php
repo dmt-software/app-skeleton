@@ -15,18 +15,20 @@ use Doctrine\ORM\ORMSetup;
 
 final readonly class DoctrineServiceProvider implements ServiceProviderInterface
 {
+    public function __construct(private ConfigurationInterface $config)
+    {
+    }
+
     public function register(Container $container): void
     {
-        $config = $container->get(ConfigurationInterface::class);
-
         $configuration = ORMSetup::createAttributeMetadataConfig(
             paths: [__DIR__ . '/../Entity'],
-            isDevMode: $config->get('app.debug', false) === true,
+            isDevMode: $this->config->get('app.debug', false) === true,
         );
         $configuration->enableNativeLazyObjects(true);
 
         $connection = DriverManager::getConnection(
-            params: $config->get('database'),
+            params: $this->config->get('database'),
             config: $configuration
         );
 

@@ -22,7 +22,7 @@ use Slim\App as BaseApp;
  */
 final readonly class AppServiceProvider implements ServiceProviderInterface
 {
-    public function __construct(private App $app)
+    public function __construct(private App $application)
     {
     }
 
@@ -31,14 +31,14 @@ final readonly class AppServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $container): void
     {
-        $container->set(id: App::class, value: fn() => $this->app);
-        $container->set(id: BaseApp::class, value: fn() => $this->app);
+        $container->set(id: App::class, value: fn() => $this->application);
+        $container->set(id: BaseApp::class, value: fn() => $this->application);
         $container->set(
             id: ConfigurationInterface::class,
             value: fn() => new Config($container->get(FileLoaderInterface::class))
         );
         $container->set(id: ContainerInterface::class, value: fn() => $container);
         $container->set(id: FileLoaderInterface::class, value: fn() => new FileLoader());
-        $container->set(id: ResponseFactoryInterface::class, value: fn() => $this->app->getResponseFactory());
+        $container->set(id: ResponseFactoryInterface::class, value: fn() => $this->application->getResponseFactory());
     }
 }
