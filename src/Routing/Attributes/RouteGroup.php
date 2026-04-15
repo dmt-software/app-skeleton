@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DMT\Routing\Attributes;
 
 use Attribute;
@@ -10,8 +12,9 @@ final class RouteGroup
 {
     public function __construct(
         public readonly string $pattern,
+        /** @var class-string */
         public readonly string $handler = '',
-        /** @var list<MiddlewareInterface> */
+        /** @var list<class-string<MiddlewareInterface>> */
         public readonly array $middlewares = [],
         /** @var list<Route>  */
         public array $routes = [],

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DMT\Routing\Attributes;
 
 use Attribute;
@@ -15,7 +17,7 @@ final readonly class Route
         public string $pattern,
         public string|array $callable = '',
         public ?string $name = null,
-        /** @var list<MiddlewareInterface> */
+        /** @var list<class-string<MiddlewareInterface>> */
         public array $middlewares = [],
     ) {
         $this->methods = array_map('strtoupper', is_string($methods) ? explode(',', $methods) : $methods);

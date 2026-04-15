@@ -1,10 +1,12 @@
 <?php
 
-namespace DMT\Test\Routing;
+declare(strict_types=1);
+
+namespace DMT\Test\Routing\Parser;
 
 use DMT\Routing\Attributes\Route;
 use DMT\Routing\Attributes\RouteGroup;
-use DMT\Routing\RouteParser;
+use DMT\Routing\Parser\RouteParser;
 use DMT\Routing\RoutingException;
 use DMT\Test\Fixtures\DummyInvokableHandler;
 use DMT\Test\Fixtures\DummyMisconfiguredHandler;

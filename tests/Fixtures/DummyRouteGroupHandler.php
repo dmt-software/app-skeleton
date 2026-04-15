@@ -5,7 +5,7 @@ namespace DMT\Test\Fixtures;
 use DMT\Routing\Attributes as DMT;
 
 #[DMT\RouteGroup(pattern: '/group', routes: [
-    new DMT\Route( methods: ['POST'], pattern: '/bar', callable: [self::class, 'store']),
+    new DMT\Route(methods: ['POST'], pattern: '/bar', callable: [self::class, 'store']),
 ])]
 class DummyRouteGroupHandler
 {

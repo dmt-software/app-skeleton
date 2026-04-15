@@ -1,10 +1,13 @@
 <?php
 
-namespace DMT\Routing;
+declare(strict_types=1);
+
+namespace DMT\Routing\Parser;
 
 use ArgumentCountError;
 use DMT\Routing\Attributes\Route;
 use DMT\Routing\Attributes\RouteGroup;
+use DMT\Routing\RoutingException;
 use ReflectionAttribute;
 use ReflectionClass;
 use ReflectionException;
@@ -41,7 +44,7 @@ class RouteParser
             }
 
             return $routes;
-        } catch (ReflectionException|ArgumentCountError $exception) {
+        } catch (ReflectionException | ArgumentCountError $exception) {
             throw new RoutingException('Could not parse routes', previous: $exception);
         }
     }

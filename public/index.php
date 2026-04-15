@@ -30,6 +30,12 @@ $app->loadConfig(__DIR__ . '/../config/');
 $app->initServices();
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                             Define routes                             *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+$app->routeController(\DMT\Controllers\HomepageController::class);
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                          Run the application                          *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
