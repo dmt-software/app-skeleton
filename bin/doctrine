@@ -16,7 +16,7 @@ $app = new App(AppFactory::determineResponseFactory(), $container);
 $app->init();
 $app->loadConfig(__DIR__ . '/../config/');
 
-$container->register(new DoctrineServiceProvider());
+$container->register($container->get(DoctrineServiceProvider::class));
 
 ConsoleRunner::run(
         new SingleManagerProvider($container->get(EntityManagerInterface::class)),
