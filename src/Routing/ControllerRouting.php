@@ -7,6 +7,8 @@ namespace DMT\Routing;
 use DMT\Routing\Attributes\Route;
 use DMT\Routing\Attributes\RouteGroup;
 use DMT\Routing\Parser\RouteParser;
+use Psr\Container\ContainerInterface;
+use Psr\Http\Server\MiddlewareInterface;
 use Slim\Interfaces\RouteCollectorProxyInterface;
 
 class ControllerRouting
@@ -32,8 +34,14 @@ class ControllerRouting
         );
 
         if ($routing->middlewares !== null) {
-            foreach ($routing->middlewares as $middleware) {
-                $group->addMiddleware($collector->getContainer()->get($middleware));
+            foreach ($routing->middlewares as $middleware => $arguments) {
+                $group->addMiddleware(
+                    $this->loadMiddleware(
+                        $collector->getContainer(),
+                        $middleware,
+                        $arguments
+                    )
+                );
             }
         }
     }
@@ -51,10 +59,31 @@ class ControllerRouting
             }
 
             if ($route->middlewares !== null) {
-                foreach ($route->middlewares as $middleware) {
-                    $map->addMiddleware($collector->getContainer()->get($middleware));
+                foreach ($route->middlewares as $middleware => $arguments) {
+                    $map->addMiddleware(
+                        $this->loadMiddleware(
+                            $collector->getContainer(),
+                            $middleware,
+                            $arguments
+                        )
+                    );
                 }
             }
         }
+    }
+
+    private function loadMiddleware(
+        ContainerInterface $container,
+        string|int $middleware,
+        string|array $arguments = []
+    ): MiddlewareInterface {
+        if (!is_array($arguments)) {
+            $arguments = [$arguments];
+        }
+        if (is_string($middleware) && class_exists($middleware)) {
+            array_unshift($arguments, $middleware);
+        }
+
+        return $container->get(...$arguments);
     }
 }
