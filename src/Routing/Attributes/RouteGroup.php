@@ -14,7 +14,7 @@ final class RouteGroup
         public readonly string $pattern,
         /** @var class-string */
         public readonly string $handler = '',
-        /** @var list<class-string<MiddlewareInterface>> */
+        /** @var list<int|class-string<MiddlewareInterface>, class-string<MiddlewareInterface>|array<string, mixed>> */
         public readonly array $middlewares = [],
         /** @var list<Route>  */
         public array $routes = [],

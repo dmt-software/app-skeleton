@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DMT\ServiceProviders;
 
 use DMT\Apps\App;
-use DMT\Config\Config;
 use DMT\DependencyInjection\ConfigurationInterface;
 use DMT\DependencyInjection\Container;
 use DMT\DependencyInjection\ServiceProviderInterface;
